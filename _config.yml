@@ -13,7 +13,7 @@ tagline: Site Tagline
 author :
   name : 宇樵
   email : xxxnju@163.com
-  github : xxxnju@163.com
+  github : hsuxinxin
 
 # The production_url is only used when full-domain names are needed
 # such as sitemap.txt 
@@ -70,8 +70,7 @@ JB :
   archive_path: /archive.html
   categories_path : /categories.html
   tags_path : /tags.html
-  atom_path : /atom.xml
-  rss_path : /rss.xml
+  atom_path : /atom.xm
 
   # Settings for comments helper
   # Set 'provider' to the comment provider you want to use.
