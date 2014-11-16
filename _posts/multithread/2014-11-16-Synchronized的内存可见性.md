@@ -76,13 +76,20 @@ tags : [java, Synchronized, 多线程]
 
 这实际上是JSR133定义的其中一条happen-before规则。JSR133给Java内存模型定义以下一组happen-before规则，
 
-单线程规则：同一个线程中的每个操作都happens-before于出现在其后的任何一个操作。
-对一个监视器的解锁操作happens-before于每一个后续对同一个监视器的加锁操作。
-对volatile字段的写入操作happens-before于每一个后续的对同一个volatile字段的读操作。
-Thread.start()的调用操作会happens-before于启动线程里面的操作。
-一个线程中的所有操作都happens-before于其他线程成功返回在该线程上的join()调用后的所有操作。
-一个对象构造函数的结束操作happens-before与该对象的finalizer的开始操作。
-传递性规则：如果A操作happens-before于B操作，而B操作happens-before与C操作，那么A动作happens-before于C操作。
+1.单线程规则：同一个线程中的每个操作都happens-before于出现在其后的任何一个操作。
+
+2.对一个监视器的解锁操作happens-before于每一个后续对同一个监视器的加锁操作。
+
+3.对volatile字段的写入操作happens-before于每一个后续的对同一个volatile字段的读操作。
+
+4.Thread.start()的调用操作会happens-before于启动线程里面的操作。
+
+5.一个线程中的所有操作都happens-before于其他线程成功返回在该线程上的join()调用后的所有操作。
+
+6.一个对象构造函数的结束操作happens-before与该对象的finalizer的开始操作。
+
+7.传递性规则：如果A操作happens-before于B操作，而B操作happens-before与C操作，那么A动作happens-before于C操作。
+
 实际上这组happens-before规则定义了操作之间的内存可见性，如果A操作happens-before B操作，那么A操作的执行结果（比如对变量的写入）必定在执行B操作时可见。
 
 为了更加深入的了解这些happens-before规则，我们来看一个例子：
