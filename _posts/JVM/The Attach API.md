@@ -1,13 +1,22 @@
-ÏàĞÅÊ¹ÓÃjavaµÄ¿ª·¢Õß¿Ï¶¨¾­³£Ê¹ÓÃjava.\*ºÍjavax.\*µÄ¿â¡£µ«Õâ²»ÊÇSUNµÄJDKÎ¨Ò»Ìá¹©µÄ¹¤¾ß¿â¡£ÓĞºÜ¶àµÄ¹¤¾ß¿âÔÚtools.jar°üÏÂÃæ£¬ÆäÖĞÖ®Ò»¾ÍÊÇAttach API¡£Í¨¹ı´ËAPIµÄÃû³ÆÒ²¿ÉÒÔ²Â³ö´ËAPIµÄ×÷ÓÃÊÇÈÃ³ÌĞò¿ÉÒÔattachµ½Ä¿±êµÄJVMÉÏ¡£Í¨¹ıattachµ½Ä¿±êJVMÉÏ£¬Äã¿ÉÒÔ¼à¿Øµ½JVMµÄ×´Ì¬²¢ÇÒ¿ÉÒÔ´ÓÖĞ·¢ÏÖÒ»Ğ©Äã¸ĞĞËÈ¤µÄÎÊÌâ¡£Attach APIÔÚcom.sun.tools.attach ºÍ com.sun.tools.attach.spi°üÏÂÃæ£¬×Ü¹²ÓÉ7¸öÀà¹¹³É¡£È»ºóÄã²»ĞèÒªÊ¹ÓÃµ½com.sun.tools.attach.spi °üÏÂµÄÀà£¬ÄãĞèÒªÁË½âµÄÊÇVirtualMachine ºÍVirtualMachineDescriptor Àà¡£
-#³õÊ¶Attach API
+---
+layout: post
+category : [JVM]
+tagline: "Supporting tagline"
+tags : [Attach API]
+---
+{% include JB/setup %}
+
+
+ç›¸ä¿¡ä½¿ç”¨javaçš„å¼€å‘è€…è‚¯å®šç»å¸¸ä½¿ç”¨java.\*å’Œjavax.\*çš„åº“ã€‚ä½†è¿™ä¸æ˜¯SUNçš„JDKå”¯ä¸€æä¾›çš„å·¥å…·åº“ã€‚æœ‰å¾ˆå¤šçš„å·¥å…·åº“åœ¨tools.jaråŒ…ä¸‹é¢ï¼Œå…¶ä¸­ä¹‹ä¸€å°±æ˜¯Attach APIã€‚é€šè¿‡æ­¤APIçš„åç§°ä¹Ÿå¯ä»¥çŒœå‡ºæ­¤APIçš„ä½œç”¨æ˜¯è®©ç¨‹åºå¯ä»¥attachåˆ°ç›®æ ‡çš„JVMä¸Šã€‚é€šè¿‡attachåˆ°ç›®æ ‡JVMä¸Šï¼Œä½ å¯ä»¥ç›‘æ§åˆ°JVMçš„çŠ¶æ€å¹¶ä¸”å¯ä»¥ä»ä¸­å‘ç°ä¸€äº›ä½ æ„Ÿå…´è¶£çš„é—®é¢˜ã€‚Attach APIåœ¨com.sun.tools.attach å’Œ com.sun.tools.attach.spiåŒ…ä¸‹é¢ï¼Œæ€»å…±ç”±7ä¸ªç±»æ„æˆã€‚ç„¶åä½ ä¸éœ€è¦ä½¿ç”¨åˆ°com.sun.tools.attach.spi åŒ…ä¸‹çš„ç±»ï¼Œä½ éœ€è¦äº†è§£çš„æ˜¯VirtualMachine å’ŒVirtualMachineDescriptor ç±»ã€‚
+#åˆè¯†Attach API
 The VirtualMachine class represents a specific Java virtual machine (JVM) instance. You connect to a JVM by providing the VirtualMachine class with the process id, and then you load a management agent to do your customized behavior:
-VirtualMachine Àà±íÊ¾JVMµÄÊ¾Àı¡£Äã¿ÉÒÔÍ¨¹ı´«¸øVirtualMachineÀàÄ¿±êJVMµÄ½ø³Ìid²ÎÊıÀ´Á¬½ÓÄ¿±êJVM£¬²¢ÇÒÄã¿ÉÒÔ¼ÓÔØÒ»¸öagentÀ´×ö¶îÍâµÄÊÂÇé£º
+VirtualMachine ç±»è¡¨ç¤ºJVMçš„ç¤ºä¾‹ã€‚ä½ å¯ä»¥é€šè¿‡ä¼ ç»™VirtualMachineç±»ç›®æ ‡JVMçš„è¿›ç¨‹idå‚æ•°æ¥è¿æ¥ç›®æ ‡JVMï¼Œå¹¶ä¸”ä½ å¯ä»¥åŠ è½½ä¸€ä¸ªagentæ¥åšé¢å¤–çš„äº‹æƒ…ï¼š
 ```java
 VirtualMachine vm = VirtualMachine.attach (processid);
 String agent = ...
 vm.loadAgent(agent);
 ```
-ÁíÒ»ÖÖÁ¬½ÓJVMµÄ·½Ê½ÊÇÍ¨¹ıµü´úËùÓĞµÄJVMÊ¾ÀıÀ´Ñ¡ÔñÄãÏ£ÍûÁ¬½ÓµÄJVM£º
+å¦ä¸€ç§è¿æ¥JVMçš„æ–¹å¼æ˜¯é€šè¿‡è¿­ä»£æ‰€æœ‰çš„JVMç¤ºä¾‹æ¥é€‰æ‹©ä½ å¸Œæœ›è¿æ¥çš„JVMï¼š
 ```java
 String name = ...
 List vms = VirtualMachine.list();
@@ -20,9 +29,9 @@ for (VirtualMachineDescriptor vmd: vms) {
     }
 }
 ```
-µ±ĞèÒª¶Ï¿ªÁ¬½ÓµÄÊ±ºò£¬¿ÉÒÔµ÷ÓÃdetach·½·¨¡£µ±Äã¼ÓÔØÍêagentºó£¬ÄãÓ¦¸Ãµ÷ÓÃdetach·½·¨¡£
-##Ê¾Àı
-ÔÚJDKÖĞÌìÈ»´æÔÚÒ»¸öJMX´úÀí£¬ÔÚmanagement-agent.jar°üÏÂÃæ¡£JMX´úÀí¿ÉÒÔÔ¶³ÌÔÚÄ¿±êJVMÉÏÆô¶¯µÄÒ»¸öJMX´úÀíMBean·şÎñ£¬È»ºóµÃµ½Ò»¸öÁ¬½Óµ½´Ë·şÎñµÄMBeanServerConnection¡£Í¨¹ıÕâ¸öÁ¬½ÓÄã¿ÉÒÔ¼à¿Øµ½JVMµÄºÜ¶àĞĞÎª£¬±ÈÈçµÃµ½Ô¶³ÌÄ¿±êJVMµÄÏß³Ì×´Ì¬¡£ÏÂÃæÎÒÃÇÍ¨¹ıÒ»¸ö¼òµ¥µÄÊ¾Àı³ÌĞòÊµÏÖ´Ë¹¦ÄÜ¡£Ê×ÏÈ£¬ÎÒÃÇµÄ³ÌĞòĞèÒªattachµ½Ò»¸öÄ¿±êJVMÉÏ¡£È»ºóĞèÒªÆô¶¯Ò»¸öÔ¶³ÌµÄJMX·şÎñ£¨Èç¹ûÃ»ÓĞÆô¶¯µÄ»°£©¡£´úÀíÀàjar°ümanagement-agent.jar¿ÉÒÔÔÚÄ¿±êJVMÉÏµÄjava.homeÏµÍ³»·¾³ÏÂÕÒµ½¡£Ò»µ©Á¬½Ó³É¹¦£¬ÎÒÃÇ¾Í¿ÉÒÔ»ñÈ¡´ËÁ¬½Ó£¬²¢Í¨¹ı´ËÁ¬½Ó»ñÈ¡ÎÒÃÇ¸ĞĞËÈ¤µÄĞÅÏ¢£¬±ÈÈçÏß³ÌµÄÃû×ÖºÍ×´Ì¬
+å½“éœ€è¦æ–­å¼€è¿æ¥çš„æ—¶å€™ï¼Œå¯ä»¥è°ƒç”¨detachæ–¹æ³•ã€‚å½“ä½ åŠ è½½å®Œagentåï¼Œä½ åº”è¯¥è°ƒç”¨detachæ–¹æ³•ã€‚
+##ç¤ºä¾‹
+åœ¨JDKä¸­å¤©ç„¶å­˜åœ¨ä¸€ä¸ªJMXä»£ç†ï¼Œåœ¨management-agent.jaråŒ…ä¸‹é¢ã€‚JMXä»£ç†å¯ä»¥è¿œç¨‹åœ¨ç›®æ ‡JVMä¸Šå¯åŠ¨çš„ä¸€ä¸ªJMXä»£ç†MBeanæœåŠ¡ï¼Œç„¶åå¾—åˆ°ä¸€ä¸ªè¿æ¥åˆ°æ­¤æœåŠ¡çš„MBeanServerConnectionã€‚é€šè¿‡è¿™ä¸ªè¿æ¥ä½ å¯ä»¥ç›‘æ§åˆ°JVMçš„å¾ˆå¤šè¡Œä¸ºï¼Œæ¯”å¦‚å¾—åˆ°è¿œç¨‹ç›®æ ‡JVMçš„çº¿ç¨‹çŠ¶æ€ã€‚ä¸‹é¢æˆ‘ä»¬é€šè¿‡ä¸€ä¸ªç®€å•çš„ç¤ºä¾‹ç¨‹åºå®ç°æ­¤åŠŸèƒ½ã€‚é¦–å…ˆï¼Œæˆ‘ä»¬çš„ç¨‹åºéœ€è¦attachåˆ°ä¸€ä¸ªç›®æ ‡JVMä¸Šã€‚ç„¶åéœ€è¦å¯åŠ¨ä¸€ä¸ªè¿œç¨‹çš„JMXæœåŠ¡ï¼ˆå¦‚æœæ²¡æœ‰å¯åŠ¨çš„è¯ï¼‰ã€‚ä»£ç†ç±»jaråŒ…management-agent.jarå¯ä»¥åœ¨ç›®æ ‡JVMä¸Šçš„java.homeç³»ç»Ÿç¯å¢ƒä¸‹æ‰¾åˆ°ã€‚ä¸€æ—¦è¿æ¥æˆåŠŸï¼Œæˆ‘ä»¬å°±å¯ä»¥è·å–æ­¤è¿æ¥ï¼Œå¹¶é€šè¿‡æ­¤è¿æ¥è·å–æˆ‘ä»¬æ„Ÿå…´è¶£çš„ä¿¡æ¯ï¼Œæ¯”å¦‚çº¿ç¨‹çš„åå­—å’ŒçŠ¶æ€
 ```java
 import java.io.File;
 import java.lang.management.ManagementFactory;
@@ -74,4 +83,4 @@ public class MonitorVMThread {
 	  }
 }
 ```
-JMXµÄ¸ü¶àÄÚÈİÇë¿´ http://www.ibm.com/developerworks/cn/java/j-lo-jse63/index.html
+JMXçš„æ›´å¤šå†…å®¹è¯·çœ‹ http://www.ibm.com/developerworks/cn/java/j-lo-jse63/index.html
