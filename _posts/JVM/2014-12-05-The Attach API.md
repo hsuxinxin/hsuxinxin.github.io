@@ -14,6 +14,7 @@ tags : [Attach API]
 VirtualMachine 类表示JVM的示例。你可以通过传给VirtualMachine类目标JVM的进程id参数来连接目标JVM，并且你可以加载一个agent来做额外的事情：
 
 ```java
+
 VirtualMachine vm = VirtualMachine.attach (processid);
 
 String agent = ...
