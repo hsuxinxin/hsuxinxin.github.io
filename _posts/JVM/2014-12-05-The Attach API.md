@@ -15,8 +15,11 @@ VirtualMachine 类表示JVM的示例。你可以通过传给VirtualMachine类目
 
 ```java
 VirtualMachine vm = VirtualMachine.attach (processid);
+
 String agent = ...
+
 vm.loadAgent(agent);
+
 ```
 
 另一种连接JVM的方式是通过迭代所有的JVM示例来选择你希望连接的JVM：
